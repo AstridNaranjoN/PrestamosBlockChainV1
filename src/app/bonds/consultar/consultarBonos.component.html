@@ -1,0 +1,58 @@
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="col-md-5">
+        <div class="form-area">
+            <br style="clear:both">
+            <h3 style="margin-bottom: 25px; text-align: center;">Consultar Bonos - {{option}}</h3>
+
+            <div class="container">
+                <div class="col-md-2">
+                    <button type="button" id="emitidos" name="emitidos" (click)="find('emitidos')" class="btn btn-primary pull-right">Bonos emitidos</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" id="adquiridos" name="adquiridos" (click)="find('adquiridos')" class="btn btn-primary pull-right">Bonos adquiridos</button>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="mytable" class="table table-bordred table-striped">
+                            <thead>
+                                <th>{{currentLabels.fecha}}</th>
+                                <th>{{currentLabels.valor}}</th>
+                                <th>{{currentLabels.estado}}</th>
+                                <th *ngIf="option === 'adquiridos'">Pagar</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bond of bonds">
+                                    <td>{{bond.creationDate}}</td>
+                                    <td>{{bond.amount}}</td>
+                                    <td>
+                                        <span [ngSwitch]="bond.status">
+                                            <p *ngSwitchCase="1">
+                                                ACTIVO
+                                            </p>
+                                            <p *ngSwitchCase="0">
+                                                INACTIVO
+                                            </p>
+                                            <p *ngSwitchDefault>
+
+                                            </p>
+                                        </span>
+                                    </td>
+                                    <td *ngIf="option === 'adquiridos'">
+                                        <a (click)="irPagar(bond.id)">Ir</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
