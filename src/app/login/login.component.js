@@ -26,7 +26,7 @@ var LoginComponent = (function () {
     LoginComponent.prototype.onSubmit = function () {
         this.app.User = this.user;
         this.app.User.password = undefined;
-        this.app.User.name = "Juan Pablo";
+        this.app.User.name = "Astrid Naranjo";
         this.app.isLoggedIn = true;
         this.router.navigate(['/home']);
     };

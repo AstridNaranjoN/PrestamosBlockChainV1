@@ -25,6 +25,7 @@
                                 <th>{{currentLabels.valor}}</th>
                                 <th>{{currentLabels.estado}}</th>
                                 <th *ngIf="option === 'adquiridos'">Pagar</th>
+                                <th *ngIf="option === 'emitidos'">Adquirir</th>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let bond of bonds">
@@ -44,7 +45,10 @@
                                         </span>
                                     </td>
                                     <td *ngIf="option === 'adquiridos'">
-                                        <a (click)="irPagar(bond.id)">Ir</a>
+                                        <a (click)="irPagar(bond)">Ir</a>
+                                    </td>
+                                    <td *ngIf="option === 'emitidos'">
+                                        <a (click)="irAdquirir(bond)">Adquirir</a>
                                     </td>
                                 </tr>
                             </tbody>

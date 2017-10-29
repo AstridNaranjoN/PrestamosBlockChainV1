@@ -12,4 +12,9 @@ export class EmitirBonoComponent {
     private labels = new Labels();
     private bond:Bond = new Bond();
 
+    constructor() {
+        this.bond.creationDate = new Date();
+        
+    }
+
 }

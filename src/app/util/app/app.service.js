@@ -22,6 +22,16 @@ var App = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(App.prototype, "Bond", {
+        get: function () {
+            return this._bond;
+        },
+        set: function (value) {
+            this._bond = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(App.prototype, "User", {
         get: function () {
             return this._user;

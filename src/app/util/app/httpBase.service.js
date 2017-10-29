@@ -20,6 +20,11 @@ var HttpServiceBase = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
+    HttpServiceBase.prototype.getWithHeaders = function (apiUrl, headers) {
+        return this.http.get(apiUrl, { headers: headers })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     HttpServiceBase.prototype.extractData = function (res) {
         var body = res.json();
         return body || {};

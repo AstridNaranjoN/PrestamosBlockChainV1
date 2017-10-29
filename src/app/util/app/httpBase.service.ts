@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from "rxjs/Rx";
 
 @Injectable()
@@ -10,6 +10,12 @@ export class HttpServiceBase {
 
     get(apiUrl: string) {
         return this.http.get(apiUrl)
+        .map(this.extractData)
+        .catch(this.handleError);
+    }
+
+    getWithHeaders(apiUrl: string, headers: Headers) {
+        return this.http.get(apiUrl, { headers: headers })
         .map(this.extractData)
         .catch(this.handleError);
     }

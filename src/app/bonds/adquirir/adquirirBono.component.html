@@ -5,7 +5,7 @@
             <h3 style="margin-bottom: 25px; text-align: center;">Adquirir Bono</h3>
             <div class="form-group">
                 {{labels.adquirirBono.fecha}}
-                <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="bond.creationDate" placeholder="Fecha" required>
+                <input type="datetime" class="form-control" id="fecha" name="fecha" [(ngModel)]="bond.creationDate" placeholder="Fecha" required>
             </div>
             <div class="form-group">
                 {{labels.adquirirBono.valor}}
@@ -13,11 +13,11 @@
             </div>
             <div class="form-group">
                 {{labels.adquirirBono.interes}}
-                <input type="number" class="form-control" id="interes" name="interes" [(ngModel)]="bond.interes" placeholder="Interés" required>
+                <input type="number" class="form-control" id="interes" name="interes" placeholder="Interés" readonly value="0.1">
             </div>
             <div class="form-group">
                 {{labels.adquirirBono.plazo}}
-                <input type="number" class="form-control" id="plazo" name="plazo" [(ngModel)]="bond.installments" placeholder="Plazo" required>
+                <input type="number" class="form-control" id="plazo" name="plazo" [(ngModel)]="bond.installments" placeholder="Plazo" readonly>
             </div>
 
             <div class="form-group row">
