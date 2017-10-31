@@ -14,6 +14,8 @@ var Rx_1 = require("rxjs/Rx");
 var HttpServiceBase = (function () {
     function HttpServiceBase(http) {
         this.http = http;
+        this.headers = new http_1.Headers();
+        this.headers.append("Content-Type", "application/json");
     }
     HttpServiceBase.prototype.get = function (apiUrl) {
         return this.http.get(apiUrl)
@@ -22,6 +24,12 @@ var HttpServiceBase = (function () {
     };
     HttpServiceBase.prototype.getWithHeaders = function (apiUrl, headers) {
         return this.http.get(apiUrl, { headers: headers })
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    HttpServiceBase.prototype.post = function (apiUrl, model) {
+        var ro = new http_1.RequestOptions({ headers: this.headers });
+        return this.http.post(apiUrl, model, ro)
             .map(this.extractData)
             .catch(this.handleError);
     };

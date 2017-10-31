@@ -5,7 +5,7 @@
             <h3 style="margin-bottom: 25px; text-align: center;">Emitir Bono</h3>
             <div class="form-group">
                 {{labels.emitirBono.fecha}}
-                <input type="datetime" class="form-control" id="fecha" name="fecha" [(ngModel)]="bond.creationDate | date:'dd/MM/yyyy'" placeholder="Fecha" required>
+                <input type="datetime" class="form-control" id="fecha" name="fecha" [(ngModel)]="bond.creationDate" placeholder="Fecha" required>
             </div>
             <div class="form-group">
                 {{labels.emitirBono.valor}}
@@ -17,7 +17,7 @@
                     <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Cancelar</button>
                 </div>
                 <div class="col-sm-2 col-sm-offset-3">
-                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Emitir</button>
+                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="emitirBono()">Emitir</button>
                 </div>
             </div>
         </div>

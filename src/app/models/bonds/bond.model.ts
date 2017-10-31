@@ -1,9 +1,9 @@
 export class Bond {
     id: number;
     moneyLenderId: number;
-    borrowerId: number;
+    borrowerId: string;
     amount: number;
     installments: number;
-    creationDate: Date;
-    status: number;
+    creationDate: number;
+    status: string;
 }

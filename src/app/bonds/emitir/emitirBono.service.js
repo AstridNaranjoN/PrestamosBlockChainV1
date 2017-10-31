@@ -10,19 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var httpBase_service_1 = require("../../util/app/httpBase.service");
-var ConsultarBonosService = (function () {
-    function ConsultarBonosService(httpBase) {
+var EmitirBonosService = (function () {
+    function EmitirBonosService(httpBase) {
         this.httpBase = httpBase;
     }
-    ConsultarBonosService.prototype.consultarBonos = function () {
-        return this.httpBase.get('http://35.188.4.120:8080/bonds');
+    EmitirBonosService.prototype.emitirBono = function (bono) {
+        return this.httpBase.post('http://35.188.4.120:8080/bonds', bono);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
-    return ConsultarBonosService;
+    return EmitirBonosService;
 }());
-ConsultarBonosService = __decorate([
+EmitirBonosService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [httpBase_service_1.HttpServiceBase])
-], ConsultarBonosService);
-exports.ConsultarBonosService = ConsultarBonosService;
-//# sourceMappingURL=consultarBonos.service.js.map
+], EmitirBonosService);
+exports.EmitirBonosService = EmitirBonosService;
+//# sourceMappingURL=emitirBono.service.js.map
