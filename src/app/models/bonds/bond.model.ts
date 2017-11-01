@@ -4,6 +4,6 @@ export class Bond {
     borrowerId: string;
     amount: number;
     installments: number;
-    creationDate: number;
+    creationDate: Date;
     status: string;
 }

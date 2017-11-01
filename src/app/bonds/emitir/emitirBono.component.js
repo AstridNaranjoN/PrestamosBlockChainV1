@@ -14,14 +14,15 @@ var appLabels_service_1 = require("../../util/app/appLabels.service");
 var emitirBono_service_1 = require("./emitirBono.service");
 var EmitirBonoComponent = (function () {
     function EmitirBonoComponent(service) {
-        //this.bond.creationDate = new Date();
         this.service = service;
         this.labels = new appLabels_service_1.Labels();
         this.bond = new bond_model_1.Bond();
+        this.bond.creationDate = new Date();
     }
     EmitirBonoComponent.prototype.emitirBono = function () {
         this.bond.borrowerId = "astridnaranjon@gmail.com";
         this.bond.status = "CREATED";
+        this.bond.creationDate = new Date(this.bond.creationDate);
         this.service.emitirBono(this.bond).subscribe(function (result) { return alert(result); }, function (error) { return console.log(error); });
     };
     return EmitirBonoComponent;

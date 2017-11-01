@@ -27,7 +27,7 @@ var ConsultarBonosComponent = (function () {
     }
     ConsultarBonosComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.service.consultarBonos().subscribe(function (result) { return _this.bonds = result; }, function (error) { return console.log(error); });
+        this.service.consultarBonos().subscribe(function (result) { _this.bonds = result; }, function (error) { return console.log(error); });
     };
     ConsultarBonosComponent.prototype.labelsBonosEmitidos = function (labels) {
         return labels.emitirBono;

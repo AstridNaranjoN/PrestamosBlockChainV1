@@ -15,7 +15,7 @@ var EmitirBonosService = (function () {
         this.httpBase = httpBase;
     }
     EmitirBonosService.prototype.emitirBono = function (bono) {
-        return this.httpBase.post('http://35.188.4.120:8080/bonds', bono);
+        return this.httpBase.post('http://104.154.210.143:8080/bonds', bono);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     return EmitirBonosService;

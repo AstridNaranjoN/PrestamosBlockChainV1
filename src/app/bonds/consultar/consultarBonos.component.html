@@ -29,21 +29,9 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let bond of bonds">
-                                    <td>{{bond.creationDate}}</td>
+                                    <td>{{bond.creationDate | date:'shortDate'}}</td>
                                     <td>{{bond.amount}}</td>
-                                    <td>
-                                        <span [ngSwitch]="bond.status">
-                                            <p *ngSwitchCase="1">
-                                                ACTIVO
-                                            </p>
-                                            <p *ngSwitchCase="0">
-                                                INACTIVO
-                                            </p>
-                                            <p *ngSwitchDefault>
-
-                                            </p>
-                                        </span>
-                                    </td>
+                                    <td> {{bond.status}}</td>
                                     <td *ngIf="option === 'adquiridos'">
                                         <a (click)="irPagar(bond)">Ir</a>
                                     </td>
