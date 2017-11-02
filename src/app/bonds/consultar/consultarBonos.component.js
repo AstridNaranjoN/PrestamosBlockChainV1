@@ -23,11 +23,16 @@ var ConsultarBonosComponent = (function () {
         this.labels = new appLabels_service_1.Labels();
         this.currentLabels = this.labels.emitirBono;
         this.bonds = [];
-        this.functions = { emitidos: this.labelsBonosEmitidos, adquiridos: this.labelsBonosAdquiridos };
+        this.functions = {
+            emitidos: this.labelsBonosEmitidos,
+            adquiridos: this.labelsBonosAdquiridos
+        };
     }
     ConsultarBonosComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.service.consultarBonos().subscribe(function (result) { _this.bonds = result; }, function (error) { return console.log(error); });
+        this.service.consultarBonos().subscribe(function (result) {
+            _this.bonds = result;
+        }, function (error) { return console.log(error); });
     };
     ConsultarBonosComponent.prototype.labelsBonosEmitidos = function (labels) {
         return labels.emitirBono;
@@ -41,11 +46,15 @@ var ConsultarBonosComponent = (function () {
     };
     ConsultarBonosComponent.prototype.irAdquirir = function (bond) {
         this.app.Bond = bond;
-        this.router.navigate(['./adquirirBono'], { relativeTo: this.activeRoute.parent });
+        this.router.navigate(['./adquirirBono'], {
+            relativeTo: this.activeRoute.parent
+        });
     };
     ConsultarBonosComponent.prototype.irPagar = function (bond) {
         this.app.Bond = bond;
-        this.router.navigate(['./pagarBonos'], { relativeTo: this.activeRoute.parent });
+        this.router.navigate(['./pagarBonos'], {
+            relativeTo: this.activeRoute.parent
+        });
     };
     return ConsultarBonosComponent;
 }());

@@ -1,3 +1,33 @@
-<div>
-    Pagar Bonos
+<div class="container">
+  <div class="col-md-5">
+    <div class="form-area">
+      <br style="clear:both">
+      <h3 style="margin-bottom: 25px; text-align: left;">Pagar Bono</h3>
+      <div class="form-group">
+        {{labels.pagarBono.fecha}}
+        <input type="datetype" class="form-control" id="fecha" name="fecha" [(ngModel)]="bond.creationDate" placeholder="Fecha" readonly
+          required>
+      </div>
+      <div class="form-group">
+        {{labels.pagarBono.valor}}
+        <input type="number" class="form-control" id="valor" name="valor" [(ngModel)]="bond.amount" placeholder="Valor" readonly
+          required>
+      </div>
+      <div class="form-group">
+        {{labels.pagarBono.interes}}
+        <input type="number" class="form-control" id="interes" name="interes" placeholder="Interés" readonly value="0.1">
+      </div>
+      <div class="form-group">
+        {{labels.pagarBono.total}}
+        <input type="number" class="form-control" id="total" name="total" [(ngModel)]="totalPay" placeholder="Total a Pagar" readonly>
+      </div>
+
+      <div class="form-group row">
+        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="pagarBono()">
+                    <button type="button" id="cancel" name="cancel" class="btn btn-secondary pull-right" (click)="goToBondslist()">Cancelar</button>
+        <span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Pagar</button>
+      </div>
+    </div>
+  </div>
+
 </div>
