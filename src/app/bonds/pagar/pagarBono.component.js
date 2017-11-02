@@ -23,9 +23,13 @@ var PagarBonoComponent = (function () {
         this.labels = new appLabels_service_1.Labels();
         this.bond = new bond_model_1.Bond();
         this.totalPay = 0;
+        this.bonusSelected = true;
     }
     PagarBonoComponent.prototype.ngOnInit = function () {
         this.bond = this.app.Bond;
+        if (this.bond != null) {
+            this.bonusSelected = false;
+        }
         this.totalPay = this.bond.amount + (this.bond.amount * 0.1);
     };
     PagarBonoComponent.prototype.pagarBono = function () {

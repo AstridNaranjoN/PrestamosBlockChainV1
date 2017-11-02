@@ -15,12 +15,17 @@ export class PagarBonoComponent {
     private labels = new Labels();
     private bond: Bond = new Bond();
     private totalPay: Number = 0;
+    private bonusSelected: boolean;
 
     constructor(private service: PagarBonosService, private app: App, private router: Router, private activeRoute: ActivatedRoute) {
+        this.bonusSelected = true;
     }
 
     ngOnInit(): void {
         this.bond = this.app.Bond;
+        if (this.bond != null){
+            this.bonusSelected = false;
+        }
         this.totalPay = this.bond.amount + (this.bond.amount * 0.1);
     }
 
