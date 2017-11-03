@@ -23,11 +23,15 @@ var ConsultarBonosComponent = (function () {
         this.labels = new appLabels_service_1.Labels();
         this.currentLabels = this.labels.emitirBono;
         this.bonds = [];
+        this.bondsTemp = [];
         this.functions = { emitidos: this.labelsBonosEmitidos, adquiridos: this.labelsBonosAdquiridos };
     }
     ConsultarBonosComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.service.consultarBonos().subscribe(function (result) { _this.bonds = result; }, function (error) { return console.log(error); });
+        this.service.consultarBonos().subscribe(function (result) {
+            _this.bondsTemp = result;
+            _this.bonds = Object.assign([], _this.bondsTemp).filter(function (item) { return item.status.toUpperCase() == "CREATED"; });
+        }, function (error) { return console.log(error); });
     };
     ConsultarBonosComponent.prototype.labelsBonosEmitidos = function (labels) {
         return labels.emitirBono;
@@ -38,6 +42,11 @@ var ConsultarBonosComponent = (function () {
     ConsultarBonosComponent.prototype.find = function (value) {
         this.option = value;
         this.currentLabels = this.functions[value](this.labels);
+        var status = "CREATED";
+        if (value === "adquiridos") {
+            status = "PUT";
+        }
+        this.bonds = Object.assign([], this.bondsTemp).filter(function (item) { return item.status.toUpperCase() == status; });
     };
     ConsultarBonosComponent.prototype.irAdquirir = function (bond) {
         this.app.Bond = bond;

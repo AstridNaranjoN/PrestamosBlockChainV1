@@ -10,11 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var googleAuth_service_1 = require("../util/app/googleAuth.service");
 var HomeComponent = (function () {
-    function HomeComponent(router, route) {
+    function HomeComponent(router, route, googleService) {
         this.router = router;
         this.route = route;
+        this.googleService = googleService;
     }
+    HomeComponent.prototype.ngAfterViewInit = function () {
+        if (!this.googleService.isSignedIn) {
+            this.router.navigate(['/login']);
+            return;
+        }
+    };
     HomeComponent.prototype.emitirBono = function () {
         this.router.navigate(['./emitirBono'], { relativeTo: this.route });
     };
@@ -35,7 +43,7 @@ HomeComponent = __decorate([
         templateUrl: './home.component.html',
         styleUrls: ['./home.component.css']
     }),
-    __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute, googleAuth_service_1.GoogleAuthService])
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

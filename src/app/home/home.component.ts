@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { GoogleAuthService } from '../util/app/googleAuth.service';
 
 @Component({
     selector: 'home',
@@ -7,9 +8,15 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
+    ngAfterViewInit(): void {
+        if (!this.googleService.isSignedIn){
+            this.router.navigate(['/login']);
+            return;
+        }
+    }
 
-    constructor(private router: Router, private route: ActivatedRoute) {
+    constructor(private router: Router, private route: ActivatedRoute, private googleService: GoogleAuthService) {
     }
 
     emitirBono() {

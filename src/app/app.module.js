@@ -24,6 +24,7 @@ var app_routing_1 = require("./app.routing");
 /*Servicios propios*/
 var app_service_1 = require("./util/app/app.service");
 var httpBase_service_1 = require("./util/app/httpBase.service");
+var googleAuth_service_1 = require("./util/app/googleAuth.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -45,7 +46,7 @@ AppModule = __decorate([
             emitirBono_component_1.EmitirBonoComponent,
             pagarBono_component_1.PagarBonoComponent,],
         bootstrap: [app_component_1.AppComponent],
-        providers: [app_service_1.App, httpBase_service_1.HttpServiceBase]
+        providers: [app_service_1.App, httpBase_service_1.HttpServiceBase, googleAuth_service_1.GoogleAuthService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -9,10 +9,13 @@
             </button>
             <span class="navbar-brand">Prestamos BlockChain</span>
         </div>
-        <div *ngIf="app.isLoggedIn" class="collapse navbar-collapse" id="navbar-collapse-1">
+        <div *ngIf="googleService.isSignedIn" class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a>{{app.User.name}}</a>
+                    <a>{{name}}</a>
+                </li>
+                <li>
+                    <img src="{{image}}" style="width:50px; height:50px; border-radius: 100px">
                 </li>
                 <li>
                     <a class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="nav-collapse1"

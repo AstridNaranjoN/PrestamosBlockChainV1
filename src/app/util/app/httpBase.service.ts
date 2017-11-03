@@ -30,6 +30,14 @@ export class HttpServiceBase {
             .map(this.extractData)
             .catch(this.handleError);
     }
+  
+    put(apiUrl: string, model: any) {
+        let ro = new RequestOptions({ headers: this.headers })
+        return this.http.put(apiUrl, model, ro)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+    
 
     private extractData(res: Response) {
         let body = res.json();

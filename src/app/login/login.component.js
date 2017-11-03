@@ -13,21 +13,41 @@ var router_1 = require("@angular/router");
 var user_model_1 = require("../models/users/user.model");
 var app_service_1 = require("../util/app/app.service");
 var appLabels_service_1 = require("../util/app/appLabels.service");
+var googleAuth_service_1 = require("../util/app/googleAuth.service");
 var LoginComponent = (function () {
-    function LoginComponent(router, app) {
+    function LoginComponent(router, app, googleService) {
         this.router = router;
         this.app = app;
+        this.googleService = googleService;
         this.labels = new appLabels_service_1.Labels();
         this.user = new user_model_1.User();
     }
     LoginComponent.prototype.register = function () {
         this.router.navigate(['/register']);
     };
-    LoginComponent.prototype.onSubmit = function () {
-        this.app.User = this.user;
-        this.app.User.password = undefined;
-        this.app.User.name = "Astrid Naranjo";
-        this.app.isLoggedIn = true;
+    LoginComponent.prototype.immediateSignInCallback = function (googleUser, app, router) {
+        var profile = googleUser.getBasicProfile();
+        var user = new user_model_1.User();
+        app.User = user;
+        app.User.password = undefined;
+        app.User.name = profile.getName();
+        app.isLoggedIn = true;
+        app.User["image"] = profile.getImageUrl();
+        // router.navigate(['/home'])
+        // window.location.href = "/home";
+        window.location.replace("/home");
+        // router.router.navigate(['/home']);
+        document.getElementById("login").setAttribute("style", "background:green !important");
+    };
+    LoginComponent.prototype.immediateSignInError = function (err) {
+        console.log(err);
+    };
+    LoginComponent.prototype.logIn = function () {
+        var _this = this;
+        if (!this.googleService.isSignedIn) {
+            this.googleService.auth2.signIn().then(function (data, app, router) { _this.immediateSignInCallback(data, _this.app, _this); }, this.immediateSignInError);
+            return;
+        }
         this.router.navigate(['/home']);
     };
     return LoginComponent;
@@ -38,7 +58,7 @@ LoginComponent = __decorate([
         templateUrl: './login.component.html',
         styleUrls: ['./login.component.css']
     }),
-    __metadata("design:paramtypes", [router_1.Router, app_service_1.App])
+    __metadata("design:paramtypes", [router_1.Router, app_service_1.App, googleAuth_service_1.GoogleAuthService])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

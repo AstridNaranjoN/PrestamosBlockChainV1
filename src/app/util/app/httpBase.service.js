@@ -33,6 +33,12 @@ var HttpServiceBase = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
+    HttpServiceBase.prototype.put = function (apiUrl, model) {
+        var ro = new http_1.RequestOptions({ headers: this.headers });
+        return this.http.put(apiUrl, model, ro)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     HttpServiceBase.prototype.extractData = function (res) {
         var body = res.json();
         return body || {};

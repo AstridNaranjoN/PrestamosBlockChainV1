@@ -11,15 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var app_service_1 = require("../util/app/app.service");
+var googleAuth_service_1 = require("../util/app/googleAuth.service");
 var MenuComponent = (function () {
-    function MenuComponent(router, app) {
+    function MenuComponent(router, app, googleService) {
         this.router = router;
         this.app = app;
+        this.googleService = googleService;
+        this.name = "";
+        this.image = "";
+        this.name = this.googleService.userName;
+        this.image = this.googleService.userImage;
     }
     MenuComponent.prototype.logout = function () {
-        this.app.isLoggedIn = false;
-        this.app.User = undefined;
-        this.router.navigate(['/login']);
+        var _this = this;
+        this.googleService.signOut(function (router) {
+            if (router === void 0) { router = _this.router; }
+            return (_this.close(router));
+        });
+    };
+    MenuComponent.prototype.close = function (router) {
+        router.navigate(['/login']);
     };
     return MenuComponent;
 }());
@@ -29,7 +40,7 @@ MenuComponent = __decorate([
         templateUrl: './menu.component.html',
         styleUrls: ['./menu.component.css']
     }),
-    __metadata("design:paramtypes", [router_1.Router, app_service_1.App])
+    __metadata("design:paramtypes", [router_1.Router, app_service_1.App, googleAuth_service_1.GoogleAuthService])
 ], MenuComponent);
 exports.MenuComponent = MenuComponent;
 //# sourceMappingURL=menu.component.js.map

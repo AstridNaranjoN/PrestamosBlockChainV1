@@ -12,23 +12,29 @@ var core_1 = require("@angular/core");
 var bond_model_1 = require("../../models/bonds/bond.model");
 var appLabels_service_1 = require("../../util/app/appLabels.service");
 var app_service_1 = require("../../util/app/app.service");
+var adquirirBono_service_1 = require("./adquirirBono.service");
 var AdquirirBonoComponent = (function () {
-    function AdquirirBonoComponent(app) {
+    function AdquirirBonoComponent(app, service) {
         this.app = app;
+        this.service = service;
         this.labels = new appLabels_service_1.Labels();
         this.bond = new bond_model_1.Bond();
     }
     AdquirirBonoComponent.prototype.ngOnInit = function () {
         this.bond = this.app.Bond;
     };
+    AdquirirBonoComponent.prototype.adquirirBono = function () {
+        this.service.adquirirBono(this.bond).subscribe(function (result) { return alert(result); }, function (error) { return console.log(error); });
+    };
     return AdquirirBonoComponent;
 }());
 AdquirirBonoComponent = __decorate([
     core_1.Component({
         selector: 'adquirirBono',
-        templateUrl: './adquirirBono.component.html'
+        templateUrl: './adquirirBono.component.html',
+        providers: [adquirirBono_service_1.AdquirirBonosService]
     }),
-    __metadata("design:paramtypes", [app_service_1.App])
+    __metadata("design:paramtypes", [app_service_1.App, adquirirBono_service_1.AdquirirBonosService])
 ], AdquirirBonoComponent);
 exports.AdquirirBonoComponent = AdquirirBonoComponent;
 //# sourceMappingURL=adquirirBono.component.js.map

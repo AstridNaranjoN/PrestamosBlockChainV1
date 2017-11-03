@@ -21,6 +21,7 @@ import { routing } from './app.routing';
 /*Servicios propios*/
 import { App } from './util/app/app.service';
 import { HttpServiceBase } from './util/app/httpBase.service';
+import { GoogleAuthService} from './util/app/googleAuth.service'
 
 @NgModule({
   imports: [BrowserModule, HttpModule,
@@ -37,6 +38,6 @@ import { HttpServiceBase } from './util/app/httpBase.service';
     EmitirBonoComponent,
     PagarBonoComponent,],
   bootstrap: [AppComponent],
-  providers: [App, HttpServiceBase]
+  providers: [App, HttpServiceBase, GoogleAuthService]
 })
 export class AppModule { }
