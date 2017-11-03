@@ -30,7 +30,6 @@ import {
 
 export class ConsultarBonosComponent implements OnInit {
 
-<<<<<<< HEAD
     private option: string = 'emitidos';
     private labels = new Labels();
     private currentLabels = this.labels.emitirBono;
@@ -43,8 +42,8 @@ export class ConsultarBonosComponent implements OnInit {
 
     ngOnInit(): void {
         this.service.consultarBonos().subscribe(
-            result => { 
-                this.bondsTemp = result 
+            result => {
+                this.bondsTemp = result
                 this.bonds = Object.assign([], this.bondsTemp).filter(
                     item => item.status.toUpperCase() == "CREATED"
                 )
@@ -84,53 +83,3 @@ export class ConsultarBonosComponent implements OnInit {
     }
 
 }
-=======
-  private option: string = 'emitidos';
-  private labels = new Labels();
-  private currentLabels = this.labels.emitirBono;
-  private bonds: Bond[] = [];
-  private functions: {} = {
-    emitidos: this.labelsBonosEmitidos,
-    adquiridos: this.labelsBonosAdquiridos
-  };
-
-  constructor(private service: ConsultarBonosService, private app: App, private router: Router, private activeRoute: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.service.consultarBonos().subscribe(
-      result => {
-        this.bonds = result
-      },
-      error => console.log(error)
-    );
-  }
-
-  labelsBonosEmitidos(labels: Labels) {
-    return labels.emitirBono;
-  }
-
-  labelsBonosAdquiridos(labels: Labels) {
-    return labels.adquirirBono;
-  }
-
-  find(value: string) {
-    this.option = value;
-    this.currentLabels = this.functions[value](this.labels);
-  }
-
-  irAdquirir(bond: Bond) {
-    this.app.Bond = bond;
-    this.router.navigate(['./adquirirBono'], {
-      relativeTo: this.activeRoute.parent
-    });
-  }
-
-  irPagar(bond: Bond) {
-    this.app.Bond = bond;
-    this.router.navigate(['./pagarBonos'], {
-      relativeTo: this.activeRoute.parent
-    });
-  }
-
-}
->>>>>>> 820ab5e27ce4feecd52ae516aff489192dae0cb6
