@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 /*Componentes propios*/
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './account/register/register.component';
+import { IntermediateComponent } from './intermediate/intermediate.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { AdquirirBonoComponent } from './bonds/adquirir/adquirirBono.component';
@@ -30,7 +30,7 @@ import { GoogleAuthService} from './util/app/googleAuth.service'
   ],
   declarations: [AppComponent,
     LoginComponent,
-    RegisterComponent,
+    IntermediateComponent,
     HomeComponent,
     MenuComponent,
     AdquirirBonoComponent,

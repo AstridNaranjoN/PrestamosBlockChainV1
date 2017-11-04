@@ -10,19 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var httpBase_service_1 = require("../../util/app/httpBase.service");
+var googleAuth_service_1 = require("../../util/app/googleAuth.service");
 var EmitirBonosService = (function () {
-    function EmitirBonosService(httpBase) {
+    function EmitirBonosService(httpBase, googleService) {
         this.httpBase = httpBase;
+        this.googleService = googleService;
     }
-    EmitirBonosService.prototype.emitirBono = function (bono) {
-        return this.httpBase.post('http://104.154.210.143:8080/bonds', bono);
+    EmitirBonosService.prototype.emitirBono = function (bond) {
+        bond.moneyLenderId = this.googleService.email;
+        bond.creationDate = new Date(bond.creationDate);
+        bond.status = "CREATED";
+        return this.httpBase.post('http://104.154.210.143:8080/bonds', bond);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     return EmitirBonosService;
 }());
 EmitirBonosService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [httpBase_service_1.HttpServiceBase])
+    __metadata("design:paramtypes", [httpBase_service_1.HttpServiceBase, googleAuth_service_1.GoogleAuthService])
 ], EmitirBonosService);
 exports.EmitirBonosService = EmitirBonosService;
 //# sourceMappingURL=emitirBono.service.js.map

@@ -13,5 +13,22 @@
     /* background-color: #FAFAFA; */
     padding: 10px 40px 60px;
     margin: 0px -53px 0px;
-    border: 1px solid GREY;
+   
+}
+
+#mytable > thead > th{
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#mytable > thead{
+    background-color: #ddd;
+}
+
+.btn{
+    border-radius: 0px!important;
+}
+
+#navbar-collapse-1 > ul > li:nth-child(3) > a {
+    border:0px!important;
 }

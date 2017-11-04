@@ -18,6 +18,10 @@ var ConsultarBonosService = (function () {
         return this.httpBase.get('http://104.154.210.143:8080/bonds');
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
+    ConsultarBonosService.prototype.consultarBonosAdquiridos = function (id) {
+        return this.httpBase.get('http://104.154.210.143:8080/bonds/loaner/' + id);
+        //return this.httpBase.get('/app/bonds/consultar/bonos.json');
+    };
     return ConsultarBonosService;
 }());
 ConsultarBonosService = __decorate([

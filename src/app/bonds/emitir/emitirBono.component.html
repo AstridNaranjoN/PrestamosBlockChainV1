@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="col-md-5">
+    <div class="col-md-5 col-md-offset-2">
         <div class="form-area">
             <br style="clear:both">
             <h3 style="margin-bottom: 25px; text-align: center;">Emitir Bono</h3>
@@ -14,7 +14,7 @@
 
             <div class="form-group row">
                 <div class="col-sm-2 col-sm-offset-3">
-                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Cancelar</button>
+                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="cancelar()">Cancelar</button>
                 </div>
                 <div class="col-sm-2 col-sm-offset-3">
                     <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="emitirBono()">Emitir</button>

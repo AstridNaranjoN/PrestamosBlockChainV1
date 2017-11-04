@@ -12,6 +12,7 @@ export class HomeComponent implements AfterViewInit {
     ngAfterViewInit(): void {
         if (!this.googleService.isSignedIn){
             this.router.navigate(['/login']);
+            // window.location.replace("/intermediate");
             return;
         }
     }

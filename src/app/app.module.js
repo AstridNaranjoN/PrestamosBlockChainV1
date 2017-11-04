@@ -13,7 +13,7 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 /*Componentes propios*/
 var login_component_1 = require("./login/login.component");
-var register_component_1 = require("./account/register/register.component");
+var intermediate_component_1 = require("./intermediate/intermediate.component");
 var home_component_1 = require("./home/home.component");
 var menu_component_1 = require("./menu/menu.component");
 var adquirirBono_component_1 = require("./bonds/adquirir/adquirirBono.component");
@@ -38,7 +38,7 @@ AppModule = __decorate([
         ],
         declarations: [app_component_1.AppComponent,
             login_component_1.LoginComponent,
-            register_component_1.RegisterComponent,
+            intermediate_component_1.IntermediateComponent,
             home_component_1.HomeComponent,
             menu_component_1.MenuComponent,
             adquirirBono_component_1.AdquirirBonoComponent,

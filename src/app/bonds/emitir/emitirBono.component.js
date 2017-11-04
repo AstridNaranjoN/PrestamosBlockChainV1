@@ -9,21 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var bond_model_1 = require("../../models/bonds/bond.model");
 var appLabels_service_1 = require("../../util/app/appLabels.service");
 var emitirBono_service_1 = require("./emitirBono.service");
 var EmitirBonoComponent = (function () {
-    function EmitirBonoComponent(service) {
+    function EmitirBonoComponent(service, router, activeRoute) {
         this.service = service;
+        this.router = router;
+        this.activeRoute = activeRoute;
         this.labels = new appLabels_service_1.Labels();
         this.bond = new bond_model_1.Bond();
         this.bond.creationDate = new Date();
     }
     EmitirBonoComponent.prototype.emitirBono = function () {
-        this.bond.borrowerId = "astridnaranjon@gmail.com";
-        this.bond.status = "CREATED";
-        this.bond.creationDate = new Date(this.bond.creationDate);
-        this.service.emitirBono(this.bond).subscribe(function (result) { return alert(result); }, function (error) { return console.log(error); });
+        var _this = this;
+        this.service.emitirBono(this.bond).subscribe(function (result) {
+            alert(result);
+            _this.goToBondslist();
+        }, function (error) { return console.log(error); });
+    };
+    EmitirBonoComponent.prototype.cancelar = function () {
+        this.bond = new bond_model_1.Bond();
+        this.goToBondslist();
+    };
+    EmitirBonoComponent.prototype.goToBondslist = function () {
+        this.router.navigate(['./consultarBonos'], { relativeTo: this.activeRoute.parent });
     };
     return EmitirBonoComponent;
 }());
@@ -33,7 +44,7 @@ EmitirBonoComponent = __decorate([
         templateUrl: './emitirBono.component.html',
         providers: [emitirBono_service_1.EmitirBonosService]
     }),
-    __metadata("design:paramtypes", [emitirBono_service_1.EmitirBonosService])
+    __metadata("design:paramtypes", [emitirBono_service_1.EmitirBonosService, router_1.Router, router_1.ActivatedRoute])
 ], EmitirBonoComponent);
 exports.EmitirBonoComponent = EmitirBonoComponent;
 //# sourceMappingURL=emitirBono.component.js.map

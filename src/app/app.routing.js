@@ -1,7 +1,7 @@
 "use strict";
 var router_1 = require("@angular/router");
 var login_component_1 = require("./login/login.component");
-var register_component_1 = require("./account/register/register.component");
+var intermediate_component_1 = require("./intermediate/intermediate.component");
 var home_component_1 = require("./home/home.component");
 var consultarBonos_component_1 = require("./bonds/consultar/consultarBonos.component");
 var emitirBono_component_1 = require("./bonds/emitir/emitirBono.component");
@@ -10,7 +10,7 @@ var pagarBono_component_1 = require("./bonds/pagar/pagarBono.component");
 var appRoutes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'register', component: register_component_1.RegisterComponent },
+    { path: 'intermediate', component: intermediate_component_1.IntermediateComponent },
     {
         path: 'home', component: home_component_1.HomeComponent,
         children: [

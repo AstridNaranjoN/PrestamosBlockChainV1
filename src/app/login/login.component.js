@@ -21,20 +21,17 @@ var LoginComponent = (function () {
         this.googleService = googleService;
         this.labels = new appLabels_service_1.Labels();
         this.user = new user_model_1.User();
+        this.name = "";
+        this.image = "";
+        // setTimeout(function(googleService: GoogleAuthService) {
+        //     alert('final -' + googleService.email);
+        // }, 0, {googleService});
     }
-    LoginComponent.prototype.register = function () {
-        this.router.navigate(['/register']);
+    LoginComponent.prototype.ngOnInit = function () {
+        this.name = this.googleService.userName;
+        this.image = this.googleService.userImage;
     };
     LoginComponent.prototype.immediateSignInCallback = function (googleUser, app, router) {
-        var profile = googleUser.getBasicProfile();
-        var user = new user_model_1.User();
-        app.User = user;
-        app.User.password = undefined;
-        app.User.name = profile.getName();
-        app.isLoggedIn = true;
-        app.User["image"] = profile.getImageUrl();
-        // router.navigate(['/home'])
-        // window.location.href = "/home";
         window.location.replace("/home");
         // router.router.navigate(['/home']);
         document.getElementById("login").setAttribute("style", "background:green !important");

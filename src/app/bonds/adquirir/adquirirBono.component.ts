@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Bond } from '../../models/bonds/bond.model';
 import { Labels } from '../../util/app/appLabels.service';
 import { App } from '../../util/app/app.service';
-import { AdquirirBonosService } from './adquirirBono.service'
+import { AdquirirBonosService } from './adquirirBono.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
     selector: 'adquirirBono',
@@ -14,7 +16,7 @@ export class AdquirirBonoComponent implements OnInit {
     private labels = new Labels();
     private bond: Bond = new Bond();
 
-    constructor(private app: App, private service: AdquirirBonosService) {
+    constructor(private app: App, private service: AdquirirBonosService, private router: Router, private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit(): void {
@@ -23,10 +25,20 @@ export class AdquirirBonoComponent implements OnInit {
 
     adquirirBono() {
         this.service.adquirirBono(this.bond).subscribe(
-            result => alert(result),
+            result => {
+                alert(result);
+                this.goToBondslist();
+            },
             error => console.log(error)
         );
     }
 
+    cancelar() {
+        this.bond = new Bond();
+        this.goToBondslist();
+    }
 
+    goToBondslist(): void {
+        this.router.navigate(['./consultarBonos'], { relativeTo: this.activeRoute.parent });
+    }
 }

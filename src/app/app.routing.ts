@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './account/register/register.component';
+import { IntermediateComponent } from './intermediate/intermediate.component';
 import { HomeComponent } from './home/home.component';
 import { ConsultarBonosComponent } from './bonds/consultar/consultarBonos.component';
 import { EmitirBonoComponent } from './bonds/emitir/emitirBono.component';
@@ -12,7 +12,7 @@ import { PagarBonoComponent } from './bonds/pagar/pagarBono.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'intermediate', component: IntermediateComponent },
   {
     path: 'home', component: HomeComponent,
     children: [

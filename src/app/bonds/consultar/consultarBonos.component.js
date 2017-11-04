@@ -13,12 +13,14 @@ var router_1 = require("@angular/router");
 var appLabels_service_1 = require("../../util/app/appLabels.service");
 var consultarBonos_service_1 = require("./consultarBonos.service");
 var app_service_1 = require("../../util/app/app.service");
+var googleAuth_service_1 = require("../../util/app/googleAuth.service");
 var ConsultarBonosComponent = (function () {
-    function ConsultarBonosComponent(service, app, router, activeRoute) {
+    function ConsultarBonosComponent(service, app, router, activeRoute, googleService) {
         this.service = service;
         this.app = app;
         this.router = router;
         this.activeRoute = activeRoute;
+        this.googleService = googleService;
         this.option = 'emitidos';
         this.labels = new appLabels_service_1.Labels();
         this.currentLabels = this.labels.emitirBono;
@@ -27,10 +29,19 @@ var ConsultarBonosComponent = (function () {
         this.functions = { emitidos: this.labelsBonosEmitidos, adquiridos: this.labelsBonosAdquiridos };
     }
     ConsultarBonosComponent.prototype.ngOnInit = function () {
+        this.consultarBonosEmitidos();
+    };
+    ConsultarBonosComponent.prototype.consultarBonosEmitidos = function () {
         var _this = this;
         this.service.consultarBonos().subscribe(function (result) {
             _this.bondsTemp = result;
             _this.bonds = Object.assign([], _this.bondsTemp).filter(function (item) { return item.status.toUpperCase() == "CREATED"; });
+        }, function (error) { return console.log(error); });
+    };
+    ConsultarBonosComponent.prototype.consultarBonosAdquiridos = function () {
+        var _this = this;
+        this.service.consultarBonosAdquiridos(this.googleService.email).subscribe(function (result) {
+            _this.bonds = result;
         }, function (error) { return console.log(error); });
     };
     ConsultarBonosComponent.prototype.labelsBonosEmitidos = function (labels) {
@@ -42,11 +53,12 @@ var ConsultarBonosComponent = (function () {
     ConsultarBonosComponent.prototype.find = function (value) {
         this.option = value;
         this.currentLabels = this.functions[value](this.labels);
-        var status = "CREATED";
+        this.bonds = [];
         if (value === "adquiridos") {
-            status = "PUT";
+            this.consultarBonosAdquiridos();
+            return;
         }
-        this.bonds = Object.assign([], this.bondsTemp).filter(function (item) { return item.status.toUpperCase() == status; });
+        this.consultarBonosEmitidos();
     };
     ConsultarBonosComponent.prototype.irAdquirir = function (bond) {
         this.app.Bond = bond;
@@ -64,7 +76,7 @@ ConsultarBonosComponent = __decorate([
         templateUrl: './consultarBonos.component.html',
         providers: [consultarBonos_service_1.ConsultarBonosService]
     }),
-    __metadata("design:paramtypes", [consultarBonos_service_1.ConsultarBonosService, app_service_1.App, router_1.Router, router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [consultarBonos_service_1.ConsultarBonosService, app_service_1.App, router_1.Router, router_1.ActivatedRoute, googleAuth_service_1.GoogleAuthService])
 ], ConsultarBonosComponent);
 exports.ConsultarBonosComponent = ConsultarBonosComponent;
 //# sourceMappingURL=consultarBonos.component.js.map

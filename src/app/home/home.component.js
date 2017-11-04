@@ -20,6 +20,7 @@ var HomeComponent = (function () {
     HomeComponent.prototype.ngAfterViewInit = function () {
         if (!this.googleService.isSignedIn) {
             this.router.navigate(['/login']);
+            // window.location.replace("/intermediate");
             return;
         }
     };
