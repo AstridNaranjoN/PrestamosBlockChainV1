@@ -11,8 +11,10 @@ export class AdquirirBonosService {
 
     adquirirBono(bono: Bond) {
         bono.status = "PUT";
-        bono.installments = 3;
+        bono.installments = 1;
         bono.borrowerId = this.googleService.email;
-        return this.httpBase.put('http://104.154.210.143:8080/bonds', bono);
+        bono.putDate = new Date(bono.creationDate);
+        bono.interest = 10
+        return this.httpBase.put('bonds', bono);
     }
 }

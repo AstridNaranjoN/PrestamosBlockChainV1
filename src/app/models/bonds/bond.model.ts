@@ -6,4 +6,7 @@ export class Bond {
     installments: number;
     creationDate: Date;
     status: string;
+    interest: number;
+    putDate: Date;
+    paymentDate: Date;
 }

@@ -32,8 +32,9 @@ var LoginComponent = (function () {
         this.image = this.googleService.userImage;
     };
     LoginComponent.prototype.immediateSignInCallback = function (googleUser, app, router) {
+        //setTimeout(function(){window.location.replace("/home"); }, 3000);
         window.location.replace("/home");
-        // router.router.navigate(['/home']);
+        //router.router.navigate(['/home']);
         document.getElementById("login").setAttribute("style", "background:green !important");
     };
     LoginComponent.prototype.immediateSignInError = function (err) {
@@ -45,6 +46,7 @@ var LoginComponent = (function () {
             this.googleService.auth2.signIn().then(function (data, app, router) { _this.immediateSignInCallback(data, _this.app, _this); }, this.immediateSignInError);
             return;
         }
+        setTimeout(function () { this.router.navigate(['/home']); }, 3000);
         this.router.navigate(['/home']);
     };
     return LoginComponent;

@@ -8,13 +8,14 @@ export class ConsultarBonosService {
     }
 
     consultarBonos() {
-         return this.httpBase.get('http://104.154.210.143:8080/bonds');
+         return this.httpBase.get('bonds');
+         //return this.httpBase.get('http://104.154.210.143:8080/bonds');
          //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     }
 
     consultarBonosAdquiridos(id: string) {
-        return this.httpBase.get('http://104.154.210.143:8080/bonds/loaner/' + id);
+        return this.httpBase.get('bonds/borrower/' + id);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
-   }
+    }
 }
 

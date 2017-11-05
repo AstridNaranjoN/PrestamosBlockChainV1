@@ -20,7 +20,7 @@ var EmitirBonosService = (function () {
         bond.moneyLenderId = this.googleService.email;
         bond.creationDate = new Date(bond.creationDate);
         bond.status = "CREATED";
-        return this.httpBase.post('http://104.154.210.143:8080/bonds', bond);
+        return this.httpBase.post('bonds', bond);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     return EmitirBonosService;

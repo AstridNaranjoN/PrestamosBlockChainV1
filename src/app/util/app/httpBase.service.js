@@ -14,11 +14,12 @@ var Rx_1 = require("rxjs/Rx");
 var HttpServiceBase = (function () {
     function HttpServiceBase(http) {
         this.http = http;
+        this.urlService = "http://35.202.189.12:8080/";
         this.headers = new http_1.Headers();
         this.headers.append("Content-Type", "application/json");
     }
     HttpServiceBase.prototype.get = function (apiUrl) {
-        return this.http.get(apiUrl)
+        return this.http.get(this.urlService + apiUrl)
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -29,13 +30,13 @@ var HttpServiceBase = (function () {
     };
     HttpServiceBase.prototype.post = function (apiUrl, model) {
         var ro = new http_1.RequestOptions({ headers: this.headers });
-        return this.http.post(apiUrl, model, ro)
+        return this.http.post(this.urlService + apiUrl, model, ro)
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.put = function (apiUrl, model) {
         var ro = new http_1.RequestOptions({ headers: this.headers });
-        return this.http.put(apiUrl, model, ro)
+        return this.http.put(this.urlService + apiUrl, model, ro)
             .map(this.extractData)
             .catch(this.handleError);
     };

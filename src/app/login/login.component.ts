@@ -30,8 +30,10 @@ export class LoginComponent implements OnInit {
 
 
     immediateSignInCallback(googleUser: any, app: App, router: LoginComponent) {
+        //setTimeout(function(){window.location.replace("/home"); }, 3000);
         window.location.replace("/home");
-        // router.router.navigate(['/home']);
+        //router.router.navigate(['/home']);
+
         document.getElementById("login").setAttribute("style", "background:green !important");
     }
 
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
             this.googleService.auth2.signIn().then((data: any, app: App, router: Router) => { this.immediateSignInCallback(data, this.app, this) }, this.immediateSignInError);
             return;
         }
+        setTimeout(function(){this.router.navigate(['/home']); }, 3000);
 
         this.router.navigate(['/home']);
 

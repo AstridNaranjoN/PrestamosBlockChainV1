@@ -15,11 +15,12 @@ var ConsultarBonosService = (function () {
         this.httpBase = httpBase;
     }
     ConsultarBonosService.prototype.consultarBonos = function () {
-        return this.httpBase.get('http://104.154.210.143:8080/bonds');
+        return this.httpBase.get('bonds');
+        //return this.httpBase.get('http://104.154.210.143:8080/bonds');
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     ConsultarBonosService.prototype.consultarBonosAdquiridos = function (id) {
-        return this.httpBase.get('http://104.154.210.143:8080/bonds/loaner/' + id);
+        return this.httpBase.get('bonds/borrower/' + id);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     return ConsultarBonosService;

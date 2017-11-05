@@ -5,15 +5,17 @@ import { Observable } from "rxjs/Rx";
 @Injectable()
 export class HttpServiceBase {
 
-    private headers: Headers;
+    private urlService: string = "http://35.202.189.12:8080/";
 
+    private headers: Headers;
+    
     constructor(private http: Http) {
         this.headers = new Headers();
         this.headers.append("Content-Type", "application/json");
     }
 
     get(apiUrl: string) {
-        return this.http.get(apiUrl)
+        return this.http.get(this.urlService + apiUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
@@ -26,14 +28,14 @@ export class HttpServiceBase {
 
     post(apiUrl: string, model: any) {
         let ro = new RequestOptions({ headers: this.headers })
-        return this.http.post(apiUrl, model, ro)
+        return this.http.post(this.urlService + apiUrl, model, ro)
             .map(this.extractData)
             .catch(this.handleError);
     }
   
     put(apiUrl: string, model: any) {
         let ro = new RequestOptions({ headers: this.headers })
-        return this.http.put(apiUrl, model, ro)
+        return this.http.put(this.urlService + apiUrl, model, ro)
             .map(this.extractData)
             .catch(this.handleError);
     }
