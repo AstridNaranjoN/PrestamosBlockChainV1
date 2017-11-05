@@ -22,10 +22,9 @@ var AdquirirBonoComponent = (function () {
         this.activeRoute = activeRoute;
         this.labels = new appLabels_service_1.Labels();
         this.bond = new bond_model_1.Bond();
-    }
-    AdquirirBonoComponent.prototype.ngOnInit = function () {
         this.bond = this.app.Bond;
-    };
+        this.bond.amount = this.bond.amount * 1.1;
+    }
     AdquirirBonoComponent.prototype.adquirirBono = function () {
         var _this = this;
         this.service.adquirirBono(this.bond).subscribe(function (result) {

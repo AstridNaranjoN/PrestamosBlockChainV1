@@ -13,7 +13,7 @@ export class AdquirirBonosService {
         bono.status = "PUT";
         bono.installments = 1;
         bono.borrowerId = this.googleService.email;
-        bono.putDate = new Date(bono.creationDate);
+        bono.putDate = new Date();
         bono.interest = 10
         return this.httpBase.put('bonds', bono);
     }

@@ -15,6 +15,7 @@ import { AdquirirBonoComponent } from './bonds/adquirir/adquirirBono.component';
 import { ConsultarBonosComponent } from './bonds/consultar/consultarBonos.component';
 import { EmitirBonoComponent } from './bonds/emitir/emitirBono.component';
 import { PagarBonoComponent } from './bonds/pagar/pagarBono.component';
+import {misBonosComponent} from './bonds/consultar/misBonos.component';
 
 import { routing } from './app.routing';
 
@@ -36,7 +37,8 @@ import { GoogleAuthService} from './util/app/googleAuth.service'
     AdquirirBonoComponent,
     ConsultarBonosComponent,
     EmitirBonoComponent,
-    PagarBonoComponent,],
+    PagarBonoComponent,
+    misBonosComponent],
   bootstrap: [AppComponent],
   providers: [App, HttpServiceBase, GoogleAuthService]
 })

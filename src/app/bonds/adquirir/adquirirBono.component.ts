@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Bond } from '../../models/bonds/bond.model';
 import { Labels } from '../../util/app/appLabels.service';
@@ -12,15 +12,13 @@ import { DatePipe } from '@angular/common'
     providers: [AdquirirBonosService]
 })
 
-export class AdquirirBonoComponent implements OnInit {
+export class AdquirirBonoComponent{
     private labels = new Labels();
     private bond: Bond = new Bond();
 
     constructor(private app: App, private service: AdquirirBonosService, private router: Router, private activeRoute: ActivatedRoute) {
-    }
-
-    ngOnInit(): void {
         this.bond = this.app.Bond;
+        this.bond.amount = this.bond.amount * 1.1
     }
 
     adquirirBono() {

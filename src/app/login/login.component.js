@@ -23,30 +23,19 @@ var LoginComponent = (function () {
         this.user = new user_model_1.User();
         this.name = "";
         this.image = "";
-        // setTimeout(function(googleService: GoogleAuthService) {
-        //     alert('final -' + googleService.email);
-        // }, 0, {googleService});
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.name = this.googleService.userName;
         this.image = this.googleService.userImage;
     };
-    LoginComponent.prototype.immediateSignInCallback = function (googleUser, app, router) {
-        //setTimeout(function(){window.location.replace("/home"); }, 3000);
-        window.location.replace("/home");
-        //router.router.navigate(['/home']);
-        document.getElementById("login").setAttribute("style", "background:green !important");
-    };
     LoginComponent.prototype.immediateSignInError = function (err) {
         console.log(err);
     };
     LoginComponent.prototype.logIn = function () {
-        var _this = this;
         if (!this.googleService.isSignedIn) {
-            this.googleService.auth2.signIn().then(function (data, app, router) { _this.immediateSignInCallback(data, _this.app, _this); }, this.immediateSignInError);
+            this.googleService.auth2.signIn().then(function () { return; }, this.immediateSignInError);
             return;
         }
-        setTimeout(function () { this.router.navigate(['/home']); }, 3000);
         this.router.navigate(['/home']);
     };
     return LoginComponent;

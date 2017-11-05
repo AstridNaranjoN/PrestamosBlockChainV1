@@ -1,9 +1,24 @@
-<input type="button" id="login" name="login" class="login loginmodal-submit" value="Login" (click)="logIn()">
-<div *ngIf="googleService.isSignedIn">
-    <li>
-        <a>{{name}}</a>
-    </li>
-    <li>
-        <img src="{{image}}" style="width:50px; height:50px; border-radius: 100px">
-    </li>
-</div>
+<!-- <input type="button" id="login" name="login" class="login loginmodal-submit" value="Login" (click)="logIn()"> -->
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+
+<div class="container">
+
+    <script id="metamorph-1-start" type="text/x-placeholder"></script>
+    <script id="metamorph-21-start" type="text/x-placeholder"></script>
+
+    <div class="container text-center">
+        <div class="form-signin" data-ember-action="2">
+            <h2 class="form-signin-heading">Prestamos BlockChain</h2>
+
+            <small class="text-muted">Conéctate usando tu cuenta de google</small>
+            <br>
+            <br>
+          
+            <p>
+                <a class="btn btn-primary social-login-btn social-google" (click)="logIn()">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </p>
+        </div>
+    </div>

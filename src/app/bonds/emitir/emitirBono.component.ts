@@ -21,8 +21,8 @@ export class EmitirBonoComponent {
         this.bond.amount = 1000000;
         this.bond.interest = 10;
         this.bond.installments = 1;
-
     }
+
     emitirBono() {
         this.service.emitirBono(this.bond).subscribe(
             result => {

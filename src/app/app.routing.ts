@@ -5,7 +5,8 @@ import { IntermediateComponent } from './intermediate/intermediate.component';
 import { HomeComponent } from './home/home.component';
 import { ConsultarBonosComponent } from './bonds/consultar/consultarBonos.component';
 import { EmitirBonoComponent } from './bonds/emitir/emitirBono.component';
-import { AdquirirBonoComponent } from './bonds/adquirir/adquirirBono.component';
+import {AdquirirBonoComponent} from './bonds/adquirir/adquirirBono.component'
+import {misBonosComponent}  from './bonds/consultar/misBonos.component';
 import { PagarBonoComponent } from './bonds/pagar/pagarBono.component';
 
 
@@ -16,9 +17,10 @@ const appRoutes: Routes = [
   {
     path: 'home', component: HomeComponent,
     children: [
+      { path: 'misBonos', component: misBonosComponent },
       { path: 'consultarBonos', component: ConsultarBonosComponent },
-      { path: 'emitirBono', component: EmitirBonoComponent },
       { path: 'adquirirBono', component: AdquirirBonoComponent },
+      { path: 'emitirBono', component: EmitirBonoComponent },
       { path: 'pagarBonos', component: PagarBonoComponent }
     ]
   }

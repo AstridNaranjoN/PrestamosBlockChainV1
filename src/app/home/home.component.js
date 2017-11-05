@@ -27,7 +27,10 @@ var HomeComponent = (function () {
     HomeComponent.prototype.emitirBono = function () {
         this.router.navigate(['./emitirBono'], { relativeTo: this.route });
     };
-    HomeComponent.prototype.adquirirBono = function () {
+    HomeComponent.prototype.misBonos = function () {
+        this.router.navigate(['./misBonos'], { relativeTo: this.route });
+    };
+    HomeComponent.prototype.adquirirBonos = function () {
         this.router.navigate(['./adquirirBono'], { relativeTo: this.route });
     };
     HomeComponent.prototype.consultarBonos = function () {

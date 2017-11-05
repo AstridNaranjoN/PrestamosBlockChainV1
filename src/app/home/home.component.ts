@@ -24,10 +24,13 @@ export class HomeComponent implements AfterViewInit {
         this.router.navigate(['./emitirBono'], { relativeTo: this.route });
     }
 
-    adquirirBono() { 
-        this.router.navigate(['./adquirirBono'], { relativeTo: this.route });
+    misBonos() { 
+        this.router.navigate(['./misBonos'], { relativeTo: this.route });
     }
 
+    adquirirBonos() { 
+        this.router.navigate(['./adquirirBono'], { relativeTo: this.route });
+    }
     consultarBonos() { 
         this.router.navigate(['./consultarBonos'], { relativeTo: this.route });
     }

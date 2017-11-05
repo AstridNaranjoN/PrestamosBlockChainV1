@@ -1,0 +1,38 @@
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="col-md-8 col-md-offset-1">
+        <div class="form-area">
+            <br style="clear:both">
+            <h3 style="margin-bottom: 25px; text-align: center;">Mis Bonos</h3>
+
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="mytable" class="table table-bordred table-striped text-center">
+                            <thead>
+                                <th>{{currentLabels.fecha}}</th>
+                                <th>{{currentLabels.valor}}</th>
+                                <th>{{currentLabels.estado}}</th>
+                                <th>{{currentLabels.prestatario}}</th>
+                                <th>{{currentLabels.fechaAdquisicion}}</th>
+                                <th>{{currentLabels.fechaPago}}</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bond of bonds">
+                                    <td>{{bond.creationDate | date:'shortDate'}}</td>
+                                    <td>{{bond.amount}}</td>
+                                    <td> {{bond.status}}</td>
+                                    <td>{{bond.borrowerId}}</td>
+                                    <td>{{bond.putDate | date:'shortDate'}}</td>
+                                    <td>{{bond.paymentDate | date:'shortDate'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

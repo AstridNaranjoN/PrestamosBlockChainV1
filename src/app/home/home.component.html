@@ -16,22 +16,24 @@
             <!-- Main Menu -->
             <div class="side-menu-container">
                 <ul class="nav navbar-nav">
+
+                    <li>
+                        <a (click)="misBonos()">
+                            <span class="glyphicon glyphicon-gift"></span> Mis Bonos</a>
+                    </li>
                     <li>
                         <a (click)="emitirBono()">
                             <span class="glyphicon glyphicon-pencil"></span> Emitir Bono</a>
                     </li>
-                    <!-- <li>
-                        <a (click)="adquirirBono()">
-                            <span class="glyphicon glyphicon-gift"></span> Adquirir Bono</a>
-                    </li> -->
+                  
                     <li>
                         <a (click)="consultarBonos()">
                             <span class="glyphicon glyphicon-link"></span> Consultar Bonos</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a (click)="pagarBonos()">
                             <span class="glyphicon glyphicon-eur"></span> Pagar Bonos</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

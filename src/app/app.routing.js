@@ -6,6 +6,7 @@ var home_component_1 = require("./home/home.component");
 var consultarBonos_component_1 = require("./bonds/consultar/consultarBonos.component");
 var emitirBono_component_1 = require("./bonds/emitir/emitirBono.component");
 var adquirirBono_component_1 = require("./bonds/adquirir/adquirirBono.component");
+var misBonos_component_1 = require("./bonds/consultar/misBonos.component");
 var pagarBono_component_1 = require("./bonds/pagar/pagarBono.component");
 var appRoutes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,9 +15,10 @@ var appRoutes = [
     {
         path: 'home', component: home_component_1.HomeComponent,
         children: [
+            { path: 'misBonos', component: misBonos_component_1.misBonosComponent },
             { path: 'consultarBonos', component: consultarBonos_component_1.ConsultarBonosComponent },
-            { path: 'emitirBono', component: emitirBono_component_1.EmitirBonoComponent },
             { path: 'adquirirBono', component: adquirirBono_component_1.AdquirirBonoComponent },
+            { path: 'emitirBono', component: emitirBono_component_1.EmitirBonoComponent },
             { path: 'pagarBonos', component: pagarBono_component_1.PagarBonoComponent }
         ]
     }

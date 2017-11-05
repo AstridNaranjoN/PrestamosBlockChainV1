@@ -59,6 +59,8 @@ export class GoogleAuthService {
                         client_id: '742966271455-e09nv94k2o3f2es5d64ga3gi08k1ff5j.apps.googleusercontent.com',
                         cookiepolicy: 'single_host_origin',
                         scope: 'profile email',
+                        ux_mode: 'redirect',
+                        redirect_uri:'http://localhost:3000/intermediate'
                     });
                 }
                 else {

@@ -7,21 +7,11 @@ import { GoogleAuthService } from '../util/app/googleAuth.service';
     template: '<h2>Cargando...</h2>',
 })
 
-export class IntermediateComponent implements OnInit {
-    
-    constructor(private router: Router, private googleService: GoogleAuthService) {
-        if (this.googleService.isSignedIn){
-            this.router.navigate(['/home']);
-            return;
-        }
-        // this.router.navigate(['/home']);
-    }
+export class IntermediateComponent {
 
-    ngOnInit(): void {
-        if (this.googleService.isSignedIn){
-            this.router.navigate(['/home']);
-            return;
-        }
+    constructor(private router: Router, private googleService: GoogleAuthService) {
+        setTimeout(function (router: Router) {
+            router["router"].navigate(['/home']);
+        }, 2000, { router });
     }
-    
 }

@@ -20,6 +20,7 @@ var adquirirBono_component_1 = require("./bonds/adquirir/adquirirBono.component"
 var consultarBonos_component_1 = require("./bonds/consultar/consultarBonos.component");
 var emitirBono_component_1 = require("./bonds/emitir/emitirBono.component");
 var pagarBono_component_1 = require("./bonds/pagar/pagarBono.component");
+var misBonos_component_1 = require("./bonds/consultar/misBonos.component");
 var app_routing_1 = require("./app.routing");
 /*Servicios propios*/
 var app_service_1 = require("./util/app/app.service");
@@ -44,7 +45,8 @@ AppModule = __decorate([
             adquirirBono_component_1.AdquirirBonoComponent,
             consultarBonos_component_1.ConsultarBonosComponent,
             emitirBono_component_1.EmitirBonoComponent,
-            pagarBono_component_1.PagarBonoComponent,],
+            pagarBono_component_1.PagarBonoComponent,
+            misBonos_component_1.misBonosComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [app_service_1.App, httpBase_service_1.HttpServiceBase, googleAuth_service_1.GoogleAuthService]
     })
