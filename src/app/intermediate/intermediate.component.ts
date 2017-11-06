@@ -4,7 +4,7 @@ import { GoogleAuthService } from '../util/app/googleAuth.service';
 
 @Component({
     selector: 'intermediate',
-    template: '<h2>Cargando...</h2>',
+    template: '<img src="../spinner.gif">',
 })
 
 export class IntermediateComponent {

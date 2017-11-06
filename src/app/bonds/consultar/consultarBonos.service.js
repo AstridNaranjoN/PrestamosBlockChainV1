@@ -20,7 +20,7 @@ var ConsultarBonosService = (function () {
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     ConsultarBonosService.prototype.consultarBonosAdquiridos = function (id) {
-        return this.httpBase.get('bonds/borrower/' + id);
+        return this.httpBase.get('bonds/borrower/' + 1);
         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
     };
     return ConsultarBonosService;

@@ -33,7 +33,11 @@ var PagarBonoComponent = (function () {
         this.totalPay = this.bond.amount + (this.bond.amount * 0.1);
     };
     PagarBonoComponent.prototype.pagarBono = function () {
-        this.service.pagarBono(this.bond).subscribe(function (result) { return alert(result); }, function (error) { return console.log(error); });
+        var _this = this;
+        this.service.pagarBono(this.bond).subscribe(function (result) {
+            alert("Bono Pagado");
+            _this.goToBondslist();
+        }, function (error) { return console.log(error); });
     };
     PagarBonoComponent.prototype.goToBondslist = function () {
         this.router.navigate(['./consultarBonos'], { relativeTo: this.activeRoute.parent });

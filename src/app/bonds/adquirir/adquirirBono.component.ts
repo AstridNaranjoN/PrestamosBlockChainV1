@@ -24,7 +24,7 @@ export class AdquirirBonoComponent{
     adquirirBono() {
         this.service.adquirirBono(this.bond).subscribe(
             result => {
-                alert(result);
+                alert("Bono Adquirido");
                 this.goToBondslist();
             },
             error => console.log(error)

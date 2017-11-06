@@ -31,7 +31,8 @@ export class PagarBonoComponent {
 
     pagarBono(): void {
         this.service.pagarBono(this.bond).subscribe(
-            result => alert(result),
+            result => {alert("Bono Pagado");
+            this.goToBondslist();},
             error => console.log(error)
         )
 

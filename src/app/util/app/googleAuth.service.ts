@@ -5,6 +5,7 @@ declare const gapi: any;
 @Injectable()
 export class GoogleAuthService {
     public auth2: any;
+    public clientId: string = '742966271455-e09nv94k2o3f2es5d64ga3gi08k1ff5j.apps.googleusercontent.com';
 
     constructor() {
         this.googleInit();
@@ -56,7 +57,7 @@ export class GoogleAuthService {
                 if (gapi.auth2.getAuthInstance() === null) {
                     this.auth2 = gapi.auth2.init({
                         key: 'AIzaSyCoAP7zPEITSLnOZeWPKLnRGQxXm5tObLs',
-                        client_id: '742966271455-e09nv94k2o3f2es5d64ga3gi08k1ff5j.apps.googleusercontent.com',
+                        client_id: this.clientId,
                         cookiepolicy: 'single_host_origin',
                         scope: 'profile email',
                         ux_mode: 'redirect',

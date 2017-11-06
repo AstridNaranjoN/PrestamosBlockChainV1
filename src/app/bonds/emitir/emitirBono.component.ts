@@ -26,7 +26,7 @@ export class EmitirBonoComponent {
     emitirBono() {
         this.service.emitirBono(this.bond).subscribe(
             result => {
-                alert(result);
+                alert("Bono Emitido");
                 this.goToBondslist();
             },
             error => console.log(error)

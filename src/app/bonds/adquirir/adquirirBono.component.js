@@ -28,7 +28,7 @@ var AdquirirBonoComponent = (function () {
     AdquirirBonoComponent.prototype.adquirirBono = function () {
         var _this = this;
         this.service.adquirirBono(this.bond).subscribe(function (result) {
-            alert(result);
+            alert("Bono Adquirido");
             _this.goToBondslist();
         }, function (error) { return console.log(error); });
     };

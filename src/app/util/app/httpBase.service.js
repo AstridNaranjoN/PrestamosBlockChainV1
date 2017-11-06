@@ -11,32 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Rx_1 = require("rxjs/Rx");
+var googleAuth_service_1 = require("../app/googleAuth.service");
 var HttpServiceBase = (function () {
-    function HttpServiceBase(http) {
+    function HttpServiceBase(http, googleService) {
         this.http = http;
+        this.googleService = googleService;
         this.urlService = "http://35.202.189.12:8080/";
+        this.accessToken = "";
         this.headers = new http_1.Headers();
-        this.headers.append("Content-Type", "application/json");
+        this.headers.set("Content-Type", "application/json");
+        this.addAuthorizationHeader();
     }
-    HttpServiceBase.prototype.get = function (apiUrl) {
-        return this.http.get(this.urlService + apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
+    HttpServiceBase.prototype.addAuthorizationHeader = function () {
+        if (this.googleService.isSignedIn) {
+            this.headers.set("x-Authorization", "bearer " + this.googleService.auth2.currentUser.get().getAuthResponse().access_token);
+            this.headers.set("client_id", this.googleService.clientId);
+        }
     };
-    HttpServiceBase.prototype.getWithHeaders = function (apiUrl, headers) {
-        return this.http.get(apiUrl, { headers: headers })
+    HttpServiceBase.prototype.get = function (apiUrl) {
+        return this.http.get(this.urlService + apiUrl, { headers: this.headers })
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.post = function (apiUrl, model) {
-        var ro = new http_1.RequestOptions({ headers: this.headers });
-        return this.http.post(this.urlService + apiUrl, model, ro)
+        return this.http.post(this.urlService + apiUrl, model, { headers: this.headers })
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.put = function (apiUrl, model) {
-        var ro = new http_1.RequestOptions({ headers: this.headers });
-        return this.http.put(this.urlService + apiUrl, model, ro)
+        return this.http.put(this.urlService + apiUrl, model, { headers: this.headers })
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -61,7 +64,7 @@ var HttpServiceBase = (function () {
 }());
 HttpServiceBase = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, googleAuth_service_1.GoogleAuthService])
 ], HttpServiceBase);
 exports.HttpServiceBase = HttpServiceBase;
 //# sourceMappingURL=httpBase.service.js.map

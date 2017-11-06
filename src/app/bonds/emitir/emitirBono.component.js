@@ -28,7 +28,7 @@ var EmitirBonoComponent = (function () {
     EmitirBonoComponent.prototype.emitirBono = function () {
         var _this = this;
         this.service.emitirBono(this.bond).subscribe(function (result) {
-            alert(result);
+            alert("Bono Emitido");
             _this.goToBondslist();
         }, function (error) { return console.log(error); });
     };
