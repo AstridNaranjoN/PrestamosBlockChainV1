@@ -7,15 +7,12 @@ export class ConsultarBonosService {
     constructor(private httpBase: HttpServiceBase) {
     }
 
-    consultarBonos() {
-         return this.httpBase.get('bonds');
-         //return this.httpBase.get('http://104.154.210.143:8080/bonds');
-         //return this.httpBase.get('/app/bonds/consultar/bonos.json');
+    consultarBonos(id: string) {
+        return this.httpBase.get('bonds/available/' + id);
     }
 
     consultarBonosAdquiridos(id: string) {
-        return this.httpBase.get('bonds/borrower/' + 1);
-        //return this.httpBase.get('/app/bonds/consultar/bonos.json');
+        return this.httpBase.get('bonds/borrower/' + id);
     }
 }
 

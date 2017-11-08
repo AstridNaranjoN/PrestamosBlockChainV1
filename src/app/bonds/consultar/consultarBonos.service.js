@@ -14,14 +14,11 @@ var ConsultarBonosService = (function () {
     function ConsultarBonosService(httpBase) {
         this.httpBase = httpBase;
     }
-    ConsultarBonosService.prototype.consultarBonos = function () {
-        return this.httpBase.get('bonds');
-        //return this.httpBase.get('http://104.154.210.143:8080/bonds');
-        //return this.httpBase.get('/app/bonds/consultar/bonos.json');
+    ConsultarBonosService.prototype.consultarBonos = function (id) {
+        return this.httpBase.get('bonds/available/' + id);
     };
     ConsultarBonosService.prototype.consultarBonosAdquiridos = function (id) {
-        return this.httpBase.get('bonds/borrower/' + 1);
-        //return this.httpBase.get('/app/bonds/consultar/bonos.json');
+        return this.httpBase.get('bonds/borrower/' + id);
     };
     return ConsultarBonosService;
 }());

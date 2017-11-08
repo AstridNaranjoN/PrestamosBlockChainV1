@@ -33,7 +33,7 @@ var ConsultarBonosComponent = (function () {
     };
     ConsultarBonosComponent.prototype.consultarBonosEmitidos = function () {
         var _this = this;
-        this.service.consultarBonos().subscribe(function (result) {
+        this.service.consultarBonos(this.googleService.email).subscribe(function (result) {
             _this.bondsTemp = result;
             _this.bonds = Object.assign([], _this.bondsTemp).filter(function (item) { return item.status.toUpperCase() == "CREATED"; });
         }, function (error) { return console.log(error); });

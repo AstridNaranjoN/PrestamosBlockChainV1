@@ -30,7 +30,7 @@ export class ConsultarBonosComponent implements OnInit {
     }
 
     consultarBonosEmitidos(): any {
-        this.service.consultarBonos().subscribe(
+        this.service.consultarBonos(this.googleService.email).subscribe(
             result => {
                 this.bondsTemp = result
                 this.bonds = Object.assign([], this.bondsTemp).filter(

@@ -16,30 +16,33 @@ var HttpServiceBase = (function () {
     function HttpServiceBase(http, googleService) {
         this.http = http;
         this.googleService = googleService;
-        this.urlService = "http://35.202.189.12:8080/";
+        //private urlService: string = "http://localhost:55612/";
+        this.urlService = "http://35.202.173.22:8080/";
         this.accessToken = "";
         this.headers = new http_1.Headers();
         this.headers.set("Content-Type", "application/json");
         this.addAuthorizationHeader();
+        this.requestOptions = new http_1.RequestOptions({ headers: this.headers });
     }
     HttpServiceBase.prototype.addAuthorizationHeader = function () {
         if (this.googleService.isSignedIn) {
-            this.headers.set("x-Authorization", "bearer " + this.googleService.auth2.currentUser.get().getAuthResponse().access_token);
+            this.headers.set("x-authorization", "Bearer " + this.googleService.auth2.currentUser.get().getAuthResponse().id_token);
+            //this.headers.set("x-authorization", "Bearer " + "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExMmMzYTYxMDkxOTMzMDgzMDA3OTkyNWRmOWM5NWFkODUyNzQ1ODAifQ.eyJhenAiOiI3NDI5NjYyNzE0NTUtZTA5bnY5NGsybzNmMmVzNWQ2NGdhM2dpMDhrMWZmNWouYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3NDI5NjYyNzE0NTUtZTA5bnY5NGsybzNmMmVzNWQ2NGdhM2dpMDhrMWZmNWouYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDE1MjI4ODU4MzUwODI4OTI4OTciLCJlbWFpbCI6ImFzdHJpZG5hcmFuam9uQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiQUY1U1hpVVRycGx4bHFiRWVCeGJjdyIsImlzcyI6ImFjY291bnRzLmdvb2dsZS5jb20iLCJqdGkiOiIxYTM5ZDRiNTdkYjM4YWM3ZjNkZTQyM2Q4ZmI4Y2M4MjAzZDhhN2ViIiwiaWF0IjoxNTEwMTQyMDA2LCJleHAiOjE1MTAxNDU2MDYsIm5hbWUiOiJBc3RyaWQgTmFyYW5qbyIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLW81b3RTR0pNaEZzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUQ0L0lvVmxQblVtdF9rL3M5Ni1jL3Bob3RvLmpwZyIsImdpdmVuX25hbWUiOiJBc3RyaWQiLCJmYW1pbHlfbmFtZSI6Ik5hcmFuam8iLCJsb2NhbGUiOiJlcy00MTkifQ.OJwaNpox2AF-bmRznk8ZA-B-TIfXfgaA8UtQ1kaq7jbIDyb4IPrlJFhzL1V2qGIMwxR5j4imZJDhiBM0trV2Qi2pLcEIrCEiHJKNJlpfS6Rot0ki_2eF_XcVzgRtIIEK9snN9c_PNOsd3TIgMT83XfeL3-d0xKZ7IREhy7Js-NUHAEwIfOAbSDt46q-6GNHPtR2Gom4PnE8Kjr4M5urCDnN4O1xWocrGqu5ClL7L0Jbra78farg_E8Iju-2z3orF2Ufppuw_7oBuErDl-SAeFFyIGPv0xCxEjJ6vikDN6GxMplgYiPk1fsIPs8ImO9OJAs7rMRxbjB1vSTlEQt-g8Q");
             this.headers.set("client_id", this.googleService.clientId);
         }
     };
     HttpServiceBase.prototype.get = function (apiUrl) {
-        return this.http.get(this.urlService + apiUrl, { headers: this.headers })
+        return this.http.get(this.urlService + apiUrl, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.post = function (apiUrl, model) {
-        return this.http.post(this.urlService + apiUrl, model, { headers: this.headers })
+        return this.http.post(this.urlService + apiUrl, model, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.put = function (apiUrl, model) {
-        return this.http.put(this.urlService + apiUrl, model, { headers: this.headers })
+        return this.http.put(this.urlService + apiUrl, model, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);
     };
