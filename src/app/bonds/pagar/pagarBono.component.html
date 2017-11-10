@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-md-5">
+  <div class="col-md-5 col-md-offset-2">
     <div class="form-area">
       <br style="clear:both">
       <h3 style="margin-bottom: 25px; text-align: left;">Pago de Bonos</h3>
@@ -19,17 +19,14 @@
             <li class="list-group-item">
               <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Total: {{totalPay}}</li>
           </ul>
-        </div>
-        <div class="panel-footer">
           <div class="form-group row" class="col-sm-2 col-sm-offset-3">
             <button type="button" id="cancel" name="cancel" class="btn btn-secondary pull-right" (click)="goToBondslist()">Cancelar</button>
-          </div>>
+          </div>
           <div class="form-group row" class="col-sm-2 col-sm-offset-3">
             <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="pagarBono()">Pagar</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>

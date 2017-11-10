@@ -37,7 +37,12 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let bond of bonds">
-                                    <td>{{bond.creationDate | date:'shortDate'}}</td>
+                                    <td *ngIf="option === 'emitidos'">
+                                        {{bond.creationDate | date:'shortDate'}}
+                                    </td>
+                                    <td *ngIf="option === 'adquiridos'">
+                                        {{bond.putDate | date:'shortDate'}}
+                                    </td>
                                     <td>{{bond.amount}}</td>
                                     <td>{{bond.status}}</td>
                                     <td *ngIf="option === 'adquiridos'">
@@ -47,7 +52,7 @@
                                         {{bond.moneyLenderId}}
                                     </td>
                                     <td *ngIf="option === 'adquiridos'">
-                                        <a (click)="irPagar(bond)">Ir</a>
+                                        <a (click)="irPagar(bond)" *ngIf="bond.status !=='PAYMENT'" >Ir</a>
                                     </td>
                                     <td *ngIf="option === 'emitidos'">
                                         <a (click)="irAdquirir(bond)">Adquirir</a>
