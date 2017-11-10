@@ -39,9 +39,9 @@
                                 <tr *ngFor="let bond of bonds">
                                     <td>{{bond.creationDate | date:'shortDate'}}</td>
                                     <td>{{bond.amount}}</td>
-                                    <td> {{bond.status}}</td>
+                                    <td>{{bond.status}}</td>
                                     <td *ngIf="option === 'adquiridos'">
-                                        {{bond.borrowerId}}
+                                        {{bond.moneyLenderId}}
                                     </td>
                                     <td *ngIf="option === 'emitidos'">
                                         {{bond.moneyLenderId}}

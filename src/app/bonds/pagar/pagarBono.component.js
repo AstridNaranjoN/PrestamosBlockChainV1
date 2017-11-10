@@ -30,7 +30,7 @@ var PagarBonoComponent = (function () {
         if (this.bond != null) {
             this.bonusSelected = false;
         }
-        this.totalPay = this.bond.amount + (this.bond.amount * 0.1);
+        this.totalPay = this.bond.amount * 1.1;
     };
     PagarBonoComponent.prototype.pagarBono = function () {
         var _this = this;

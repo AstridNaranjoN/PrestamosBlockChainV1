@@ -165,6 +165,11 @@
     margin-left: 310px;
 }
 
+
+body > bc-app > home > bc-menu > nav > div > div.navbar-header > span{
+    color: #be5238!important;
+}
+
 /* small screen */
 
 @media (max-width: 768px) {
@@ -348,4 +353,8 @@
     #dropdown .panel-body .navbar-nav {
         margin: 0;
     }
+
+  
 }
+
+

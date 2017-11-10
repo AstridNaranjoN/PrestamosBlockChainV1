@@ -4,8 +4,9 @@ import { Bond } from '../../models/bonds/bond.model';
 import { Labels } from '../../util/app/appLabels.service';
 import { ConsultarBonosService } from './consultarBonos.service';
 import { App } from '../../util/app/app.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CurrencyPipe } from '@angular/common';
 import { GoogleAuthService } from '../../util/app/googleAuth.service';
+
 
 @Component({
     selector: 'consultarBonos',

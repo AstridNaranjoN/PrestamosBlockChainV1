@@ -13,6 +13,7 @@
                             <thead>
                                 <th>{{currentLabels.fecha}}</th>
                                 <th>{{currentLabels.valor}}</th>
+                                <th>{{currentLabels.interes}}</th>
                                 <th>{{currentLabels.estado}}</th>
                                 <th>{{currentLabels.prestatario}}</th>
                                 <th>{{currentLabels.fechaAdquisicion}}</th>
@@ -22,7 +23,8 @@
                                 <tr *ngFor="let bond of bonds">
                                     <td>{{bond.creationDate | date:'shortDate'}}</td>
                                     <td>{{bond.amount}}</td>
-                                    <td> {{bond.status}}</td>
+                                    <td>{{bond.interest}}</td>
+                                    <td>{{bond.status}}</td>
                                     <td>{{bond.borrowerId}}</td>
                                     <td>{{bond.putDate | date:'shortDate'}}</td>
                                     <td>{{bond.paymentDate | date:'shortDate'}}</td>

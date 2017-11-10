@@ -9,6 +9,8 @@ export class PagarBonosService {
     }
 
     pagarBono(bono: Bond) {
-        return this.httpBase.post('bonds/', bono);
+        bono.status = "PAYMENT";
+        bono.paymentDate = new Date();
+        return this.httpBase.put('bonds/', bono);
     }
 }
