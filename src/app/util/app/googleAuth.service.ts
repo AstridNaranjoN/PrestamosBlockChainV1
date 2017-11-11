@@ -61,7 +61,7 @@ export class GoogleAuthService {
                         cookiepolicy: 'single_host_origin',
                         scope: 'profile email',
                         ux_mode: 'redirect',
-                        redirect_uri:'http://localhost:3000/intermediate'
+                        redirect_uri:'http://localhost:3081/intermediate'
                     });
                 }
                 else {

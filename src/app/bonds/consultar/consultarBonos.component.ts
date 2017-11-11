@@ -18,7 +18,7 @@ export class ConsultarBonosComponent implements OnInit {
     
     private option: string = 'adquiridos';
     private labels = new Labels();
-    private currentLabels = this.labels.emitirBono;
+    private currentLabels = this.labels.adquirirBono;
     private bonds: Bond[] = [];
     private bondsTemp: Bond[] = [];
     private functions: {} = { emitidos: this.labelsBonosEmitidos, adquiridos: this.labelsBonosAdquiridos };
