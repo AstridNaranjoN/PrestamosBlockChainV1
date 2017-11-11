@@ -10,24 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var user_model_1 = require("../models/users/user.model");
 var app_service_1 = require("../util/app/app.service");
-var appLabels_service_1 = require("../util/app/appLabels.service");
 var googleAuth_service_1 = require("../util/app/googleAuth.service");
 var LoginComponent = (function () {
     function LoginComponent(router, app, googleService) {
         this.router = router;
         this.app = app;
         this.googleService = googleService;
-        this.labels = new appLabels_service_1.Labels();
-        this.user = new user_model_1.User();
-        this.name = "";
-        this.image = "";
     }
-    LoginComponent.prototype.ngOnInit = function () {
-        this.name = this.googleService.userName;
-        this.image = this.googleService.userImage;
-    };
     LoginComponent.prototype.immediateSignInError = function (err) {
         console.log(err);
     };

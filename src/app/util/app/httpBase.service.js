@@ -20,7 +20,6 @@ var HttpServiceBase = (function () {
         this.accessToken = "";
         this.headers = new http_1.Headers();
         this.headers.set("Content-Type", "application/json");
-        this.addAuthorizationHeader();
         this.requestOptions = new http_1.RequestOptions({ method: http_1.RequestMethod.Get, headers: this.headers });
     }
     HttpServiceBase.prototype.addAuthorizationHeader = function () {
@@ -30,16 +29,19 @@ var HttpServiceBase = (function () {
         }
     };
     HttpServiceBase.prototype.get = function (apiUrl) {
+        this.addAuthorizationHeader();
         return this.http.get(this.urlService + apiUrl, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.post = function (apiUrl, model) {
+        this.addAuthorizationHeader();
         return this.http.post(this.urlService + apiUrl, model, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);
     };
     HttpServiceBase.prototype.put = function (apiUrl, model) {
+        this.addAuthorizationHeader();
         return this.http.put(this.urlService + apiUrl, model, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);

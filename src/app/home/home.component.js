@@ -18,11 +18,12 @@ var HomeComponent = (function () {
         this.googleService = googleService;
     }
     HomeComponent.prototype.ngAfterViewInit = function () {
-        if (!this.googleService.isSignedIn) {
-            this.router.navigate(['/login']);
-            // window.location.replace("/intermediate");
-            return;
-        }
+        setTimeout(function (home) {
+            if (!home.googleService.isSignedIn) {
+                home.router.navigate(['/login']);
+                return;
+            }
+        }, 1000, this);
     };
     HomeComponent.prototype.emitirBono = function () {
         this.router.navigate(['./emitirBono'], { relativeTo: this.route });

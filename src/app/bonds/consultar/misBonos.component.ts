@@ -23,10 +23,12 @@ export class misBonosComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        this.service.misBonos (this.googleService.email).subscribe (
-            result => this.bonds = result, 
-            error => console.log (error)
-        );
+        setTimeout(function(component: misBonosComponent) {
+            component.service.misBonos(component.googleService.email).subscribe(
+                result => component.bonds = result,
+                error => console.log(error)
+            );
+        }, 1000, this);
     }
 
     }

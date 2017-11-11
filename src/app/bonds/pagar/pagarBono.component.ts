@@ -26,7 +26,7 @@ export class PagarBonoComponent {
         if (this.bond != null){
             this.bonusSelected = false;
         }
-        //this.totalPay = this.bond.amount * 1.1;
+      
         this.totalPay=((this.bond.amount * 10)/100 + +this.bond.amount);
     }
 

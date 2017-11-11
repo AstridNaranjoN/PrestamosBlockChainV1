@@ -29,7 +29,9 @@ var ConsultarBonosComponent = (function () {
         this.functions = { emitidos: this.labelsBonosEmitidos, adquiridos: this.labelsBonosAdquiridos };
     }
     ConsultarBonosComponent.prototype.ngOnInit = function () {
-        this.consultarBonosAdquiridos();
+        setTimeout(function (component) {
+            component.consultarBonosAdquiridos();
+        }, 1000, this);
     };
     ConsultarBonosComponent.prototype.consultarBonosEmitidos = function () {
         var _this = this;

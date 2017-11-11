@@ -10,11 +10,12 @@ import { GoogleAuthService } from '../util/app/googleAuth.service';
 
 export class HomeComponent implements AfterViewInit {
     ngAfterViewInit(): void {
-        if (!this.googleService.isSignedIn){
-            this.router.navigate(['/login']);
-            // window.location.replace("/intermediate");
-            return;
-        }
+        setTimeout(function(home: HomeComponent) {
+            if (!home.googleService.isSignedIn){
+                home.router.navigate(['/login']);
+                return;
+            }
+        }, 1000, this);
     }
 
     constructor(private router: Router, private route: ActivatedRoute, private googleService: GoogleAuthService) {

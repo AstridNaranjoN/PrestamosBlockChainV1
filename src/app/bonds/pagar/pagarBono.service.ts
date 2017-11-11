@@ -11,6 +11,7 @@ export class PagarBonosService {
     pagarBono(bono: Bond) {
         bono.status = "PAYMENT";
         bono.paymentDate = new Date();
+        bono.amount = ((bono.amount * 10)/100 + +bono.amount)
         return this.httpBase.put('bonds/', bono);
     }
 }

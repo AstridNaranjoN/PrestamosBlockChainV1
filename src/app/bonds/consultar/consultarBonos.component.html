@@ -42,10 +42,10 @@
                             <tbody>
                                 <tr *ngFor="let bond of bonds">
                                     <td *ngIf="option === 'emitidos'">
-                                        {{bond.creationDate | date:'shortDate'}}
+                                        {{bond.creationDate | date:'yyyy-MM-dd HH:mm:ss'}}
                                     </td>
                                     <td *ngIf="option === 'adquiridos'">
-                                        {{bond.putDate | date:'shortDate'}}
+                                        {{bond.putDate | date:'yyyy-MM-dd HH:mm:ss'}}
                                     </td>
                                     <td>{{"$ " + bond.amount  }}</td>
                                     <!-- <td>{{"$ " + bond.amount}}</td> -->

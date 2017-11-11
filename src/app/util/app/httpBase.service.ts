@@ -16,9 +16,7 @@ export class HttpServiceBase {
     constructor(private http: Http, private googleService: GoogleAuthService) {
         this.headers = new Headers();
         this.headers.set("Content-Type", "application/json");
-        this.addAuthorizationHeader();
         this.requestOptions = new RequestOptions({method: RequestMethod.Get, headers: this.headers })
-        
     }
 
     addAuthorizationHeader() {
@@ -28,18 +26,21 @@ export class HttpServiceBase {
         }
     }
     get(apiUrl: string) {
+        this.addAuthorizationHeader();
         return this.http.get(this.urlService + apiUrl, this.requestOptions )
             .map(this.extractData)
             .catch(this.handleError)
     }
 
     post(apiUrl: string, model: any) {
+        this.addAuthorizationHeader();
         return this.http.post(this.urlService + apiUrl, model, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
     put(apiUrl: string, model: any) {
+        this.addAuthorizationHeader();
         return this.http.put(this.urlService + apiUrl, model, this.requestOptions)
             .map(this.extractData)
             .catch(this.handleError);

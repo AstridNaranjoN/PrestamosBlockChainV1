@@ -27,7 +27,9 @@ export class ConsultarBonosComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.consultarBonosAdquiridos();
+        setTimeout(function(component: ConsultarBonosComponent) {
+            component.consultarBonosAdquiridos();
+        }, 1000, this);
     }
 
     consultarBonosEmitidos(): any {

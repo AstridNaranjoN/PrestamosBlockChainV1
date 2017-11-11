@@ -21,13 +21,13 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let bond of bonds">
-                                    <td>{{bond.creationDate | date:'shortDate'}}</td>
+                                    <td>{{bond.creationDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                                     <td>{{bond.amount}}</td>
                                     <td>{{bond.interest}}</td>
                                     <td>{{bond.status}}</td>
                                     <td>{{bond.borrowerId}}</td>
-                                    <td>{{bond.putDate | date:'shortDate'}}</td>
-                                    <td>{{bond.paymentDate | date:'shortDate'}}</td>
+                                    <td>{{bond.putDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                                    <td>{{bond.paymentDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                                 </tr>
                             </tbody>
                         </table>
