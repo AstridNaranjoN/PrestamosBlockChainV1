@@ -21,7 +21,7 @@ var EmitirBonoComponent = (function () {
         this.labels = new appLabels_service_1.Labels();
         this.bond = new bond_model_1.Bond();
         this.bond.creationDate = new Date();
-        this.bond.amount = 1000000;
+        this.bond.amount = this.bond.amount;
         this.bond.interest = 10;
         this.bond.installments = 1;
     }
