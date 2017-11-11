@@ -39,6 +39,6 @@ export class EmitirBonoComponent {
     }
 
     goToBondslist(): void {
-        this.router.navigate(['./consultarBonos'], { relativeTo: this.activeRoute.parent });
+        this.router.navigate(['./misBonos'], { relativeTo: this.activeRoute.parent });
     }
 }

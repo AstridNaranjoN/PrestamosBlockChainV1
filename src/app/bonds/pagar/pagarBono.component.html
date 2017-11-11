@@ -20,10 +20,15 @@
               <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Total: {{totalPay}}</li>
           </ul>
           <div class="form-group row" class="col-sm-2 col-sm-offset-3">
-            <button type="button" id="cancel" name="cancel" class="btn btn-secondary pull-right" (click)="goToBondslist()">Cancelar</button>
+            <button type="button" id="cancel" name="cancel" class="btn btn-secondary pull-right" (click)="goToBondslist()">
+                <span class="glyphicon glyphicon-remove"></span>
+              Cancelar
+            </button>
           </div>
           <div class="form-group row" class="col-sm-2 col-sm-offset-3">
-            <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="pagarBono()">Pagar</button>
+            <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="pagarBono()">
+                <span class="glyphicon glyphicon-usd"></span>
+              Pagar</button>
           </div>
         </div>
       </div>

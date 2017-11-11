@@ -16,7 +16,7 @@ import { GoogleAuthService } from '../../util/app/googleAuth.service';
 
 export class ConsultarBonosComponent implements OnInit {
     
-    private option: string = 'emitidos';
+    private option: string = 'adquiridos';
     private labels = new Labels();
     private currentLabels = this.labels.emitirBono;
     private bonds: Bond[] = [];
@@ -27,7 +27,7 @@ export class ConsultarBonosComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.consultarBonosEmitidos();
+        this.consultarBonosAdquiridos();
     }
 
     consultarBonosEmitidos(): any {
@@ -79,5 +79,6 @@ export class ConsultarBonosComponent implements OnInit {
         this.app.Bond = bond;
         this.router.navigate(['./pagarBonos'], { relativeTo: this.activeRoute.parent });
     }
+
 
 }

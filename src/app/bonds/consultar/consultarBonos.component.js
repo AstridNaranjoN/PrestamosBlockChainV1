@@ -21,7 +21,7 @@ var ConsultarBonosComponent = (function () {
         this.router = router;
         this.activeRoute = activeRoute;
         this.googleService = googleService;
-        this.option = 'emitidos';
+        this.option = 'adquiridos';
         this.labels = new appLabels_service_1.Labels();
         this.currentLabels = this.labels.emitirBono;
         this.bonds = [];
@@ -29,7 +29,7 @@ var ConsultarBonosComponent = (function () {
         this.functions = { emitidos: this.labelsBonosEmitidos, adquiridos: this.labelsBonosAdquiridos };
     }
     ConsultarBonosComponent.prototype.ngOnInit = function () {
-        this.consultarBonosEmitidos();
+        this.consultarBonosAdquiridos();
     };
     ConsultarBonosComponent.prototype.consultarBonosEmitidos = function () {
         var _this = this;

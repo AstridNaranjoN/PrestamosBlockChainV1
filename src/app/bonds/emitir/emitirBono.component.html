@@ -22,10 +22,16 @@
 
             <div class="form-group row">
                 <div class="col-sm-2 col-sm-offset-3">
-                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="cancelar()">Cancelar</button>
+                    <button type="button" id="submit" name="submit" class="btn btn-secondary pull-right" (click)="cancelar()">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        Cancelar
+                    </button>
                 </div>
                 <div class="col-sm-2 col-sm-offset-3">
-                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="emitirBono()">Emitir</button>
+                    <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)="emitirBono()">
+                            <span class="glyphicon glyphicon-check"></span>
+                        Emitir
+                    </button>
                 </div>
             </div>
         </div>

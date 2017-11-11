@@ -37,7 +37,7 @@ var EmitirBonoComponent = (function () {
         this.goToBondslist();
     };
     EmitirBonoComponent.prototype.goToBondslist = function () {
-        this.router.navigate(['./consultarBonos'], { relativeTo: this.activeRoute.parent });
+        this.router.navigate(['./misBonos'], { relativeTo: this.activeRoute.parent });
     };
     return EmitirBonoComponent;
 }());
