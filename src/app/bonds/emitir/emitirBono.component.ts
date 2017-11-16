@@ -18,7 +18,7 @@ export class EmitirBonoComponent {
 
     constructor(private service: EmitirBonosService, private router: Router, private activeRoute: ActivatedRoute) {
         this.bond.creationDate = new Date();
-        this.bond.amount =  this.bond.amount ;
+        this.bond.amount =  1000000;
         this.bond.interest = 10;
         this.bond.installments = 1;
     }

@@ -65,7 +65,7 @@
                                         {{bond.paymentDate | date:'yyyy-MM-dd HH:mm:ss'}}
                                     </td>
                                     <td *ngIf="option === 'adquiridos' && bond.status !=='PAYMENT'">
-                                        {{bond.creationDate | date:'yyyy-MM-dd HH:mm:ss'}}
+                                       
                                     </td>
                                     <td *ngIf="option === 'adquiridos'">
                                         <a (click)="irPagar(bond)" *ngIf="bond.status !=='PAYMENT'" target="Ir a Pagar">

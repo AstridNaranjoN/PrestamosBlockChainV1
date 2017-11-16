@@ -19,8 +19,10 @@ var MenuComponent = (function () {
         this.googleService = googleService;
         this.name = "";
         this.image = "";
-        this.name = this.googleService.userName;
-        this.image = this.googleService.userImage;
+        setTimeout(function (menu) {
+            menu.name = menu.googleService.userName;
+            menu.image = menu.googleService.userImage;
+        }, 1000, this);
     }
     MenuComponent.prototype.logout = function () {
         var _this = this;

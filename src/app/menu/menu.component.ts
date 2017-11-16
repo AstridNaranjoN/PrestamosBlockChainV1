@@ -15,8 +15,10 @@ export class MenuComponent {
     private image: string = "";
 
     constructor(private router: Router, private app: App, private googleService: GoogleAuthService) {
-        this.name = this.googleService.userName;
-        this.image = this.googleService.userImage;
+        setTimeout(function (menu: MenuComponent) {
+            menu.name = menu.googleService.userName;
+            menu.image = menu.googleService.userImage;
+        }, 1000, this);
     }
 
     logout() {

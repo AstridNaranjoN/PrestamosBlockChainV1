@@ -18,7 +18,6 @@ export class AdquirirBonoComponent{
 
     constructor(private app: App, private service: AdquirirBonosService, private router: Router, private activeRoute: ActivatedRoute) {
         this.bond = this.app.Bond;
-        //this.bond.amount = this.bond.amount
     }
 
     adquirirBono() {
